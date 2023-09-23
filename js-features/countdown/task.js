@@ -1,6 +1,6 @@
 const timerElement = document.getElementById("timer");
 
-const initialSeconds = parseInt(timerElement.innerText);
+let initialSeconds = parseInt(timerElement.innerText);
 
 const countdownInterval = setInterval(function() {
     const hours = Math.floor(initialSeconds / 3600);
