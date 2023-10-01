@@ -17,14 +17,25 @@ class Game {
   }
 
   registerEvents() {
-    /*
-      TODO:
-      Написать обработчик события, который откликается
-      на каждый введённый символ.
-      В случае правильного ввода слова вызываем this.success()
-      При неправильном вводе символа - this.fail();
-      DOM-элемент текущего символа находится в свойстве this.currentSymbol.
-     */
+    
+    document.addEventListener('keydown', (event) => {
+        
+    const enteredSymbol = event.key.toLowerCase();
+    
+      if (!this.isGameOver) {
+          
+        if (this.currentSymbol) {
+            
+          const currentSymbolText = this.currentSymbol.textContent.toLowerCase();
+    
+          if (enteredSymbol === currentSymbolText) {
+            this.success();
+          } else {
+            this.fail();
+          }
+        }
+      }
+    });
   }
 
   success() {
